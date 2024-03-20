@@ -5,14 +5,13 @@ export default function BackofficeLayout({ children }) {
   return (
     <div className="flex">
       {/* Sidebar */}
-      <div className="">
-        <Sidebar />
-      </div>
+      <Sidebar />
+
       {/* Main body */}
       <div className="w-full">
         <Navbar />
         {/* Body */}
-        <main className="p-8 bg-slate-400 text-slate-50 min-h-screen mt-16">
+        <main className="p-8 bg-slate-400 text-slate-50 min-h-screen mt-16 ml-60">
           {children}
         </main>
       </div>
