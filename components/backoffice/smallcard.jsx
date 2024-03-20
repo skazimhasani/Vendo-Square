@@ -1,13 +1,24 @@
 import { ShoppingCart } from 'lucide-react'
 import React from 'react'
 
-export default function SmallCard() {
+export default function SmallCard({data}) {
+    const {
+        
+            title,
+            number,
+              iconBg,
+              icon: Icon,
+    }= data;
   return (
-    <div className='rounded-lg shadow-lg bg-slate-600'>
-         <div className="flex">
-        <ShoppingCart className="w-8 h-8 bg-orange-600 rounded-full items-center justify-center flex" />
-            <p>Total Order</p>
-            <h3>552</h3>
+    <div className='rounded-lg shadow-lg bg-slate-600 p-4'>
+         <div className="flex space-x-4">
+            <div className={`w-12 h-12 ${iconBg} rounded-full items-center justify-center flex`}>
+        <Icon />
+            </div>
+            <div>
+            <p>{title}</p>
+            <h3 className='text-2xl font-bold'>{number}</h3>
+            </div>
          </div>
     </div>
   )

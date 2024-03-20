@@ -6,7 +6,7 @@ import SmallCards from "@/components/backoffice/smallcards";
 
 export default function DashboardPage() {
   return (
-    <div>
+    <div> 
       <Heading title="Dashboard Overview" />
       {/* Large Card */}
       <LargeCards/>
