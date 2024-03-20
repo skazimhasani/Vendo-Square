@@ -12,7 +12,9 @@ export default function BackofficeLayout({ children }) {
       <div className="w-full">
         <Navbar />
         {/* Body */}
-        <main>{children}</main>
+        <main className="p-8 bg-slate-400 text-slate-50 min-h-screen mt-16">
+          {children}
+        </main>
       </div>
     </div>
   );
