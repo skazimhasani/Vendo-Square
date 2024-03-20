@@ -2,13 +2,13 @@ import { Layers } from 'lucide-react'
 import React from 'react'
 
 export default function LargeCard({
-    className
+    item
 }) {
   return (
-    <div className={`text-white rounded-lg${className} `}>
+    <div className={`text-white shadow-md p-8 flex items-center flex-col gap-2 rounded-lg ${item.color} `}>
         <Layers/>
-        <h4>Today Orders</h4>
-        <h2 className='text-3xl'>$108.23</h2>
+        <h4>{item.period}</h4>
+        <h2 className='lg:text-3xl text-2xl'>{item.sales}</h2>
     </div>
   )
 }
