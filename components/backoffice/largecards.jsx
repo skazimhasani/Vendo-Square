@@ -1,7 +1,13 @@
 import React from 'react'
+import LargeCard from './largecard'
 
 export default function LargeCards() {
   return (
-    <div>LargeCards</div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <LargeCard className="bg-green-800"/>
+        <LargeCard className="bg-blue-600"/>
+        <LargeCard className="bg-orange-600"/>
+        <LargeCard className="bg-purple-600"/>
+    </div>
   )
 }
