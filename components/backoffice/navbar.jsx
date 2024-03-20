@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-    <div className='flex items-center justify-between bg-slate-300
+    <div className='flex items-center justify-between bg-slate-600
      text-slate-50 h-16 px-8
       py-4 left-60 fixed top-0 w-full'>
         {/* Icon */}
