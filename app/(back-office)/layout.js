@@ -1,16 +1,16 @@
 import React from "react";
-
+import Sidebar from "@/components/backoffice/sidebar";
+import Navbar from "@/components/backoffice/navbar";
 export default function BackofficeLayout({ children }) {
   return (
     <div className="flex">
       {/* Sidebar */}
       <div className="">
-        <h1>Sidebar</h1>
+        <Sidebar />
       </div>
       {/* Main body */}
-      <div>
-        {/* Navbar */}
-        <h2>Navbar</h2>
+      <div className="w-full">
+        <Navbar />
         {/* Body */}
         <main>{children}</main>
       </div>
