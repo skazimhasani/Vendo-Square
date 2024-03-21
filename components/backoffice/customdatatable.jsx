@@ -7,9 +7,9 @@ export default function CustomDataTable() {
   const startIndex = (currentPage - 1) * Page_size;
   const endIndex = startIndex + Page_size;
   const currentlyDisplayedData = data.slice(startIndex, endIndex);
-  const numberOfPages = Math.ceil(data.length / Page_size);
+  const totalPages = Math.ceil(data.length / Page_size);
   return (
-    <div className="bg-slate-600 p-8 rounded-lg">
+    <div className="bg-slate-600 p-8 rounded-lg mt-5">
     <h2 className='text-xl font-bold mb-4'>Recent Orders</h2>
       {/* Table */}
       <div className="p-8">
@@ -80,7 +80,7 @@ export default function CustomDataTable() {
         <span className="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span className="font-semibold text-gray-50 dark:text-white">1-10</span> of <span className="font-semibold text-gray-50 dark:text-white">1000</span></span>
         <ul className="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
             <li>
-                <button onClick={()=>setCurrentPage(currentPage-1)} className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
+                <button onClick={()=>setCurrentPage(currentPage-1)} disabled={currentPage == 1} className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
             </li>
             <li>
                 <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
@@ -98,7 +98,7 @@ export default function CustomDataTable() {
                 <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
             </li>
             <li>
-        <button onClick={()=>setCurrentPage(currentPage+1)} disabled={currentPage== numberOfPages} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
+        <button onClick={()=>setCurrentPage(currentPage+1)} disabled={currentPage== totalPages} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
             </li>
         </ul>
     </nav>
