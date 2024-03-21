@@ -1,5 +1,5 @@
 import React from 'react'
-
+import data from '@/data.json';
 export default function CustomDataTable() {
   return (
     <div className="bg-slate-600 p-8 rounded-lg">
@@ -34,7 +34,9 @@ export default function CustomDataTable() {
             </tr>
         </thead>
         <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            {data.slice(0,10).map((item,i)=>{
+              return(
+                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td className="w-4 p-4">
                     <div className="flex items-center">
                         <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
@@ -42,22 +44,23 @@ export default function CustomDataTable() {
                     </div>
                 </td>
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
+                    {item.first_name}
                 </th>
                 <td className="px-6 py-4">
-                    Silver
+                    {item.last_name}
                 </td>
                 <td className="px-6 py-4">
-                    Laptop
+                    {item.email}
                 </td>
                 <td className="px-6 py-4">
-                    $2999
+                    {item.gender}
                 </td>
                 <td className="px-6 py-4">
                     <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                 </td>
             </tr>
-            
+              )
+            })}
         </tbody>
     </table>
     <nav className="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
