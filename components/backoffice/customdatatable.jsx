@@ -1,6 +1,13 @@
-import React from 'react'
+"use client";
+import React, { useState } from 'react'
 import data from '@/data.json';
 export default function CustomDataTable() {
+  const Page_size=10;
+  const [currentPage,setCurrentPage]=useState(1);
+  const startIndex = (currentPage - 1) * Page_size;
+  const endIndex = startIndex + Page_size;
+  const currentlyDisplayedData = data.slice(startIndex, endIndex);
+  const numberOfPages = Math.ceil(data.length / Page_size);
   return (
     <div className="bg-slate-600 p-8 rounded-lg">
     <h2 className='text-xl font-bold mb-4'>Recent Orders</h2>
@@ -17,16 +24,19 @@ export default function CustomDataTable() {
                     </div>
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Product name
+                   Id
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Color
+                    First Name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Category
+                    Last Name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    Price
+                    Email
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    Gender
                 </th>
                 <th scope="col" className="px-6 py-3">
                     Action
@@ -34,15 +44,18 @@ export default function CustomDataTable() {
             </tr>
         </thead>
         <tbody>
-            {data.slice(0,10).map((item,i)=>{
+            {currentlyDisplayedData.map((item,i)=>{
               return(
-                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <tr key={i} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <td className="w-4 p-4">
                     <div className="flex items-center">
                         <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
                         <label for="checkbox-table-search-1" className="sr-only">checkbox</label>
                     </div>
                 </td>
+                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {item.id}
+                </th>
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     {item.first_name}
                 </th>
@@ -67,7 +80,7 @@ export default function CustomDataTable() {
         <span className="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span className="font-semibold text-gray-50 dark:text-white">1-10</span> of <span className="font-semibold text-gray-50 dark:text-white">1000</span></span>
         <ul className="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
             <li>
-                <a href="#" className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                <button onClick={()=>setCurrentPage(currentPage-1)} className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
             </li>
             <li>
                 <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
@@ -85,7 +98,7 @@ export default function CustomDataTable() {
                 <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
             </li>
             <li>
-        <a href="#" className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+        <button onClick={()=>setCurrentPage(currentPage+1)} disabled={currentPage== numberOfPages} className="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</button>
             </li>
         </ul>
     </nav>
