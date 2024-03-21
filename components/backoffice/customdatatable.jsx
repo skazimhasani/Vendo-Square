@@ -8,6 +8,8 @@ export default function CustomDataTable() {
   const endIndex = startIndex + Page_size;
   const currentlyDisplayedData = data.slice(startIndex, endIndex);
   const totalPages = Math.ceil(data.length / Page_size);
+  const itemStartIndex = startIndex + 1;
+  const itemEndIndex = endIndex;
   return (
     <div className="bg-slate-600 p-8 rounded-lg mt-5">
     <h2 className='text-xl font-bold mb-4'>Recent Orders</h2>
@@ -77,7 +79,7 @@ export default function CustomDataTable() {
         </tbody>
     </table>
     <nav className="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4" aria-label="Table navigation">
-        <span className="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span className="font-semibold text-gray-50 dark:text-white">1-10</span> of <span className="font-semibold text-gray-50 dark:text-white">1000</span></span>
+        <span className="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">Showing <span className="font-semibold text-gray-50 dark:text-white">{itemStartIndex}-{itemEndIndex}</span> of <span className="font-semibold text-gray-50 dark:text-white">{data.length}</span></span>
         <ul className="inline-flex -space-x-px rtl:space-x-reverse text-sm h-8">
             <li>
                 <button onClick={()=>setCurrentPage(currentPage-1)} disabled={currentPage == 1} className="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</button>
