@@ -1,7 +1,23 @@
 "use client";
-import { AlignJustify, Bell, Sun } from "lucide-react";
+import {
+  AlignJustify,
+  Bell,
+  LayoutDashboard,
+  LogOut,
+  Settings,
+  Sun,
+  User,
+} from "lucide-react";
 import Image from "next/image";
 import React from "react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Navbar() {
   return (
@@ -29,15 +45,41 @@ export default function Navbar() {
             20
           </div>
         </button>
-        <button>
-          <Image
-            src="/profile.jpg"
-            alt="User Profile"
-            width={200}
-            height={200}
-            className="w-8 h-8 rounded-full"
-          />
-        </button>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <button>
+              <Image
+                src="/profile.jpg"
+                alt="User Profile"
+                width={200}
+                height={200}
+                className="w-8 h-8 rounded-full"
+              />
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>My Account</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <button className="flex items-center space-x-2">
+                <LayoutDashboard className="w-4 h-4 mr-2" />
+                <span>Dashboard</span>
+              </button>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <button className="flex items-center space-x-2">
+                <Settings className="w-4 h-4 mr-2" />
+                <span>Edit Profile</span>
+              </button>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <button className="flex items-center space-x-2">
+                <LogOut className="w-4 h-4 mr-2" />
+                <span>Logout</span>
+              </button>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </div>
   );
