@@ -11,8 +11,10 @@ export default function CustomDataTable() {
   const itemStartIndex = startIndex + 1;
   const itemEndIndex = endIndex;
   return (
-    <div className="bg-slate-600 p-8 rounded-lg mt-5">
-      <h2 className="text-xl font-bold mb-4">Recent Orders</h2>
+    <div className="dark:bg-slate-600 bg-white shadow-lg p-8 rounded-lg mt-8">
+      <h2 className="text-xl font-bold mb-4 text-black dark:text-slate-50 px-8">
+        Recent Orders
+      </h2>
       {/* Table */}
       <div className="p-8">
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -102,16 +104,16 @@ export default function CustomDataTable() {
             </tbody>
           </table>
           <nav
-            className="flex items-center flex-column flex-wrap md:flex-row justify-between pt-4"
+            className="flex items-center flex-column flex-wrap md:flex-row justify-between px-5 py-5"
             aria-label="Table navigation"
           >
-            <span className="text-sm font-normal text-gray-500 dark:text-gray-400 mb-4 md:mb-0 block w-full md:inline md:w-auto">
+            <span className="text-sm font-normal text-black dark:text-white mb-4 md:mb-0 block w-full md:inline md:w-auto">
               Showing{" "}
-              <span className="font-semibold text-gray-50 dark:text-white">
+              <span className="font-semibold text-black dark:text-white">
                 {itemStartIndex}-{itemEndIndex}
               </span>{" "}
               of{" "}
-              <span className="font-semibold text-gray-50 dark:text-white">
+              <span className="font-semibold text-black dark:text-white">
                 {data.length}
               </span>
             </span>
