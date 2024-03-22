@@ -6,7 +6,7 @@ import {
   LogOut,
   Settings,
   Sun,
-  User,
+  X,
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -35,16 +35,96 @@ export default function Navbar() {
         <button>
           <Sun />
         </button>
-        <button
-          type="button"
-          className="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-transparent rounded-lg"
-        >
-          <Bell />
-          <span className="sr-only">Notifications</span>
-          <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full -top-0 end-6 dark:border-gray-900">
-            20
-          </div>
-        </button>
+        <DropdownMenu>
+          <DropdownMenuTrigger>
+            <button
+              type="button"
+              className="relative inline-flex items-center p-3 text-sm font-medium text-center text-white bg-transparent rounded-lg"
+            >
+              <Bell />
+              <span className="sr-only">Notifications</span>
+              <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 rounded-full -top-0 end-6 dark:border-gray-900">
+                20
+              </div>
+            </button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>Notifications</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/profile.jpg"
+                  alt="User Profile"
+                  width={200}
+                  height={200}
+                  className="w-8 h-8 rounded-full"
+                />
+                <div className="flex flex-col space-y-1">
+                  <p>Yellow Sweet Corns are out of stock</p>
+                  <div className="flex items-center space-x-2">
+                    <p className="px-3 py-0.5 bg-red-700 text-white text-sm rounded-full ">
+                      Stock out
+                    </p>
+                    <p>25 Dec 2024 - 12:45</p>
+                  </div>
+                </div>
+                <button>
+                  <X />
+                </button>
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/profile.jpg"
+                  alt="User Profile"
+                  width={200}
+                  height={200}
+                  className="w-8 h-8 rounded-full"
+                />
+                <div className="flex flex-col space-y-1">
+                  <p>Yellow Corns are full of stock</p>
+                  <div className="flex items-center space-x-2">
+                    <p className="px-3 py-0.5 bg-green-700 text-white text-sm rounded-full ">
+                      Stock ful
+                    </p>
+                    <p>25 Dec 2024 - 12:45</p>
+                  </div>
+                </div>
+                <button>
+                  <X />
+                </button>
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/profile.jpg"
+                  alt="User Profile"
+                  width={200}
+                  height={200}
+                  className="w-8 h-8 rounded-full"
+                />
+                <div className="flex flex-col space-y-1">
+                  <p>Yellow Sweet Corns are out of stock</p>
+                  <div className="flex items-center space-x-2">
+                    <p className="px-3 py-0.5 bg-red-700 text-white text-sm rounded-full ">
+                      Stock out
+                    </p>
+                    <p>25 Dec 2024 - 12:45</p>
+                  </div>
+                </div>
+                <button>
+                  <X />
+                </button>
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+          </DropdownMenuContent>
+        </DropdownMenu>
         <DropdownMenu>
           <DropdownMenuTrigger>
             <button>
