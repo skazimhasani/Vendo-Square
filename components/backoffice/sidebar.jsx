@@ -5,10 +5,14 @@ import React from "react";
 import logo from "../../public/logo.svg";
 import {
   BookImage,
+  Boxes,
   ChevronRight,
   ExternalLink,
   LayoutGrid,
   LogOut,
+  Monitor,
+  ScanSearch,
+  SendToBack,
   Settings,
   Tractor,
   Truck,
@@ -66,22 +70,27 @@ export default function Sidebar() {
     {
       title: "Products",
       href: "/dashboard/products",
+      icon: Boxes,
     },
     {
       title: "Categories",
       href: "/dashboard/categories",
+      icon: LayoutGrid,
     },
     {
       title: "Attributes",
       href: "/dashboard/attributes",
+      icon: SendToBack,
     },
     {
       title: "Coupons",
       href: "/dashboard/coupons",
+      icon: ScanSearch,
     },
     {
       title: "Store Sliders",
       href: "/dashboard/sliders",
+      icon: Monitor,
     },
   ];
   return (
@@ -104,9 +113,9 @@ export default function Sidebar() {
           <LayoutGrid />
           <span>Dashboard</span>
         </Link>
-        <Collapsible>
+        <Collapsible className="px-6 py-2">
           <CollapsibleTrigger>
-            <button className="flex items-center space-x-6 px-6 py-2">
+            <button className="flex items-center space-x-6 py-2">
               <div className="flex items-center space-x-3">
                 <BookImage />
                 <span>Catalogue</span>
@@ -114,18 +123,20 @@ export default function Sidebar() {
               <ChevronRight />
             </button>
           </CollapsibleTrigger>
-          <CollapsibleContent>
+          <CollapsibleContent className="rounded-lg px-3 pl-6 bg-slate-200">
             {catalogueLinks.map((item, i) => {
+              const Icon = item.icon;
               return (
                 <Link
+                  key={i}
                   href={item.href}
                   className={
                     pathname === item.href
-                      ? "flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600 text-black"
-                      : "flex items-center space-x-3 px-6 py-2 text-gray-600 hover:text-black"
+                      ? "flex items-center space-x-3 py-2 text-sm  text-green-600"
+                      : "flex items-center space-x-3 py-2 text-gray-600 hover:text-green-600 text-sm"
                   }
                 >
-                  <LayoutGrid />
+                  <Icon className="w-4 h-4" />
                   <span>{item.title}</span>
                 </Link>
               );
