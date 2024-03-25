@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../public/logo.svg";
 import {
   BookImage,
   Boxes,
+  ChevronDown,
   ChevronRight,
   ExternalLink,
   LayoutGrid,
@@ -93,6 +94,7 @@ export default function Sidebar() {
       icon: Monitor,
     },
   ];
+  const [openCatalogue, setOpenCatalogue] = useState(false);
   return (
     <div
       className="w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50
@@ -114,13 +116,13 @@ export default function Sidebar() {
           <span>Dashboard</span>
         </Link>
         <Collapsible className="px-6 py-2">
-          <CollapsibleTrigger>
+          <CollapsibleTrigger onClick={() => setOpenCatalogue(!openCatalogue)}>
             <button className="flex items-center space-x-6 py-2">
               <div className="flex items-center space-x-3">
                 <BookImage />
                 <span>Catalogue</span>
               </div>
-              <ChevronRight />
+              {openCatalogue ? <ChevronDown /> : <ChevronRight />}
             </button>
           </CollapsibleTrigger>
           <CollapsibleContent className="rounded-lg px-3 pl-6 bg-slate-200">
