@@ -8,10 +8,10 @@ export default function BackofficeLayout({ children }) {
       <Sidebar />
 
       {/* Main body */}
-      <div className="w-full">
+      <div className="lg:ml-64 ml-0 flex-grow bg-slate-100 min-h-screen">
         <Navbar />
         {/* Body */}
-        <main className="p-8 bg-slate-100 dark:bg-slate-400 text-slate-50 min-h-screen mt-16 ml-60">
+        <main className="p-8 bg-slate-100 dark:bg-slate-400 text-slate-50 mt-16">
           {children}
         </main>
       </div>

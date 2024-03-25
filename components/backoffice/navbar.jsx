@@ -24,8 +24,8 @@ export default function Navbar() {
   return (
     <div
       className="flex items-center justify-between bg-white dark:bg-slate-600
-     text-slate-50 h-16 px-8
-      py-8 left-60 fixed top-0 w-full pr-[20rem]"
+     text-slate-50 h-20 px-8
+      py-8 fixed top-0 w-full z-50 pr-[20rem]"
     >
       {/* Icon */}
       <button className="text-black dark:text-white">
