@@ -21,16 +21,6 @@ export default function Sidebar() {
   const pathname = usePathname();
   const sidebarLinks = [
     {
-      title: "Dashboard",
-      icon: LayoutGrid,
-      href: "/dashboard",
-    },
-    {
-      title: "Catalog",
-      icon: BookImage,
-      href: "/dashboard/catalog",
-    },
-    {
       title: "Customers",
       icon: Users2,
       href: "/dashboard/customers",
@@ -75,13 +65,32 @@ export default function Sidebar() {
         <Image src={logo} alt="logo" className="w-20 h-20" />
       </Link>
       <div className="space-y-3 flex flex-col mt-14">
+        <Link
+          href="/dashboard"
+          className={
+            pathname === "/dashboard"
+              ? "flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600 text-black"
+              : "flex items-center space-x-3 px-6 py-2 text-gray-600 hover:text-black"
+          }
+        >
+          <LayoutGrid />
+          <span>Dashboard</span>
+        </Link>
+        <Link href="#" className="flex items-center space-x-3 px-6 py-2">
+          <BookImage />
+          <span>Catalog</span>
+        </Link>
         {sidebarLinks.map((item, i) => {
           const Icon = item.icon;
           return (
             <Link
               key={i}
               href={item.href}
-              className="flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600"
+              className={
+                item.href === pathname
+                  ? "flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600 text-black"
+                  : "flex items-center space-x-3 px-6 py-2 text-gray-600 hover:text-black"
+              }
             >
               <Icon />
               <span>{item.title}</span>
