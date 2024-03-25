@@ -5,6 +5,7 @@ import React from "react";
 import logo from "../../public/logo.svg";
 import {
   BookImage,
+  ChevronRight,
   ExternalLink,
   LayoutGrid,
   LogOut,
@@ -15,6 +16,11 @@ import {
   Users2,
   Warehouse,
 } from "lucide-react";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
 import { usePathname } from "next/navigation";
 
 export default function Sidebar() {
@@ -56,6 +62,28 @@ export default function Sidebar() {
       href: "/",
     },
   ];
+  const catalogueLinks = [
+    {
+      title: "Products",
+      href: "/dashboard/products",
+    },
+    {
+      title: "Categories",
+      href: "/dashboard/categories",
+    },
+    {
+      title: "Attributes",
+      href: "/dashboard/attributes",
+    },
+    {
+      title: "Coupons",
+      href: "/dashboard/coupons",
+    },
+    {
+      title: "Store Sliders",
+      href: "/dashboard/sliders",
+    },
+  ];
   return (
     <div
       className="w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50
@@ -76,10 +104,35 @@ export default function Sidebar() {
           <LayoutGrid />
           <span>Dashboard</span>
         </Link>
-        <Link href="#" className="flex items-center space-x-3 px-6 py-2">
-          <BookImage />
-          <span>Catalog</span>
-        </Link>
+        <Collapsible>
+          <CollapsibleTrigger>
+            <button className="flex items-center space-x-6 px-6 py-2">
+              <div className="flex items-center space-x-3">
+                <BookImage />
+                <span>Catalogue</span>
+              </div>
+              <ChevronRight />
+            </button>
+          </CollapsibleTrigger>
+          <CollapsibleContent>
+            {catalogueLinks.map((item, i) => {
+              return (
+                <Link
+                  href={item.href}
+                  className={
+                    pathname === item.href
+                      ? "flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600 text-black"
+                      : "flex items-center space-x-3 px-6 py-2 text-gray-600 hover:text-black"
+                  }
+                >
+                  <LayoutGrid />
+                  <span>{item.title}</span>
+                </Link>
+              );
+            })}
+          </CollapsibleContent>
+        </Collapsible>
+
         {sidebarLinks.map((item, i) => {
           const Icon = item.icon;
           return (
