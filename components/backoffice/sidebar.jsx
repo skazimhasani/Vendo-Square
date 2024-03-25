@@ -7,6 +7,7 @@ import {
   BookImage,
   ExternalLink,
   LayoutGrid,
+  LogOut,
   Settings,
   Tractor,
   Truck,
@@ -87,6 +88,12 @@ export default function Sidebar() {
             </Link>
           );
         })}
+        <div className="px-6 py-2">
+          <button className="flex items-center space-x-3 px-12 py-2 bg-blue-800 rounded-full">
+            <LogOut />
+            <span>Logout</span>
+          </button>
+        </div>
       </div>
     </div>
   );
