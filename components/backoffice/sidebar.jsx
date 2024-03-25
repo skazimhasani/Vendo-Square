@@ -2,7 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import logo from "../../public/logo.svg";
-import { LayoutGrid } from "lucide-react";
+import {
+  BookImage,
+  Cat,
+  Compass,
+  ExternalLink,
+  Framer,
+  LayoutGrid,
+  Settings,
+  Tractor,
+  Truck,
+  User,
+  UserSquare,
+  Users,
+  Users2,
+  Warehouse,
+} from "lucide-react";
 
 export default function Sidebar() {
   return (
@@ -25,56 +40,56 @@ export default function Sidebar() {
           href="#"
           className="flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600"
         >
-          <LayoutGrid />
+          <BookImage />
           <span>Cataloue</span>
         </Link>
         <Link
           href="#"
           className="flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600"
         >
-          <LayoutGrid />
+          <Users2 />
           <span>Customers</span>
         </Link>
         <Link
           href="#"
           className="flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600"
         >
-          <LayoutGrid />
+          <Warehouse />
           <span>Markets</span>
         </Link>
         <Link
           href="#"
           className="flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600"
         >
-          <LayoutGrid />
+          <Tractor />
           <span>Farmers</span>
         </Link>
         <Link
           href="#"
           className="flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600"
         >
-          <LayoutGrid />
+          <Truck />
           <span>Orders</span>
         </Link>
         <Link
           href="#"
           className="flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600"
         >
-          <LayoutGrid />
-          <span>Staff</span>
+          <User />
+          <span>Our Staff</span>
         </Link>
         <Link
           href="#"
           className="flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600"
         >
-          <LayoutGrid />
+          <Settings />
           <span>Settings</span>
         </Link>
         <Link
           href="#"
           className="flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600"
         >
-          <LayoutGrid />
+          <ExternalLink />
           <span>Online Store</span>
         </Link>
       </div>
