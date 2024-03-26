@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
 
 export default function CategoriesPage() {
   return (
-    <div>CategoriesPage</div>
-  )
+    <div>
+      {/*Header*/}
+      {/*Table*/}
+      CategoriesPage
+    </div>
+  );
 }
