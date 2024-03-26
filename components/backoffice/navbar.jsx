@@ -20,7 +20,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import ThemeSwitcherBtn from "@/components/themeproviderbtn";
 
-export default function Navbar() {
+export default function Navbar({ showSidebar, setShowSidebar }) {
   return (
     <div
       className="flex items-center justify-between bg-white dark:bg-slate-600
@@ -28,7 +28,10 @@ export default function Navbar() {
       py-8 fixed top-0 w-full z-50 pr-[20rem]"
     >
       {/* Icon */}
-      <button className="text-black dark:text-white">
+      <button
+        onClick={() => setShowSidebar(!showSidebar)}
+        className="text-black dark:text-white"
+      >
         <AlignJustify />
       </button>
       {/* 3 Icons */}

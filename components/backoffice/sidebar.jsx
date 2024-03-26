@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/collapsible";
 import { usePathname } from "next/navigation";
 
-export default function Sidebar() {
+export default function Sidebar({ showSidebar }) {
   const pathname = usePathname();
   const sidebarLinks = [
     {
@@ -97,8 +97,11 @@ export default function Sidebar() {
   const [openCatalogue, setOpenCatalogue] = useState(false);
   return (
     <div
-      className="w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50
-   fixed left-0 top-0"
+      className={
+        showSidebar
+          ? "sm:block  w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50 fixed left-0 top-0"
+          : "hidden sm:block  w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50 fixed left-0 top-0"
+      }
     >
       <Link href="#" className="px-6 py-4">
         <Image src={logo} alt="logo" className="w-20 h-20" />
