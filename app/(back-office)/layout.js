@@ -7,7 +7,7 @@ export default function BackofficeLayout({ children }) {
   return (
     <div className="flex">
       {/* Sidebar */}
-      <Sidebar showSidebar={showSidebar} />
+      <Sidebar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
 
       {/* Main body */}
       <div className="lg:ml-64 ml-0 flex-grow bg-slate-100 min-h-screen">

@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/collapsible";
 import { usePathname } from "next/navigation";
 
-export default function Sidebar({ showSidebar }) {
+export default function Sidebar({ showSidebar, setShowSidebar }) {
   const pathname = usePathname();
   const sidebarLinks = [
     {
@@ -99,16 +99,17 @@ export default function Sidebar({ showSidebar }) {
     <div
       className={
         showSidebar
-          ? "sm:block  w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50 fixed left-0 top-0"
-          : "hidden sm:block  w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50 fixed left-0 top-0"
+          ? "sm:block mt-20 sm:mt-0 w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50 fixed left-0 top-0"
+          : "hidden sm:block mt-20 sm:mt-0 w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50 fixed left-0 top-0"
       }
     >
-      <Link href="#" className="px-6 py-4">
+      <Link href="/dashboard" className="px-6 py-4">
         <Image src={logo} alt="logo" className="w-20 h-20" />
       </Link>
-      <div className="space-y-3 flex flex-col mt-14">
+      <div className="space-y-3 flex flex-col">
         <Link
           href="/dashboard"
+          onClick={() => setShowSidebar(false)}
           className={
             pathname === "/dashboard"
               ? "flex items-center space-x-3 px-6 py-2 border-l-4 border-green-600 text-black"
@@ -133,6 +134,7 @@ export default function Sidebar({ showSidebar }) {
               const Icon = item.icon;
               return (
                 <Link
+                  onClick={() => setShowSidebar(false)}
                   key={i}
                   href={item.href}
                   className={
@@ -153,6 +155,7 @@ export default function Sidebar({ showSidebar }) {
           const Icon = item.icon;
           return (
             <Link
+              onClick={() => setShowSidebar(false)}
               key={i}
               href={item.href}
               className={
