@@ -99,8 +99,8 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
     <div
       className={
         showSidebar
-          ? "sm:block mt-20 sm:mt-0 w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50 fixed left-0 top-0"
-          : "hidden sm:block mt-20 sm:mt-0 w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50 fixed left-0 top-0"
+          ? "sm:block mt-20 sm:mt-0 w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50 fixed left-0 top-0 overflow-y-scroll"
+          : "hidden sm:block mt-20 sm:mt-0 w-64 space-y-6 dark:bg-slate-500 bg-white h-screen shadow-md text-black dark:text-slate-50 fixed left-0 top-0 overflow-y-scroll"
       }
     >
       <Link href="/dashboard" className="px-6 py-4">
