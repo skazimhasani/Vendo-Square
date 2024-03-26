@@ -5,7 +5,6 @@ import {
   LayoutDashboard,
   LogOut,
   Settings,
-  Sun,
   X,
 } from "lucide-react";
 import Image from "next/image";
@@ -25,7 +24,7 @@ export default function Navbar({ showSidebar, setShowSidebar }) {
     <div
       className="flex items-center justify-between bg-white dark:bg-slate-600
      text-slate-50 h-20 px-8
-      py-8 fixed top-0 w-full z-50 pr-[20rem]"
+      py-8 fixed top-0 w-full z-50 sm:pr-[20rem]"
     >
       {/* Icon */}
       <button
