@@ -6,8 +6,10 @@ import logo from "../../public/logo.svg";
 import {
   BookImage,
   Boxes,
+  Building2,
   ChevronDown,
   ChevronRight,
+  CircleDollarSign,
   ExternalLink,
   LayoutGrid,
   LogOut,
@@ -50,6 +52,16 @@ export default function Sidebar({ showSidebar, setShowSidebar }) {
       title: "Orders",
       icon: Truck,
       href: "/dashboard/orders",
+    },
+    {
+      title: "Vendo Community",
+      icon: Building2,
+      href: "/dashboard/community",
+    },
+    {
+      title: "Wallet",
+      icon: CircleDollarSign,
+      href: "/dashboard/wallet",
     },
     {
       title: "Our staff",
