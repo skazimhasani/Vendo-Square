@@ -13,7 +13,7 @@ export default function BackofficeLayout({ children }) {
       <div className="lg:ml-64 ml-0 flex-grow bg-slate-100 min-h-screen">
         <Navbar showSidebar={showSidebar} setShowSidebar={setShowSidebar} />
         {/* Body */}
-        <main className="p-8 bg-slate-100 dark:bg-slate-400 text-slate-50 mt-16">
+        <main className="p-8 bg-slate-100 dark:bg-slate-400 min-h-screen text-slate-50 mt-16">
           {children}
         </main>
       </div>
