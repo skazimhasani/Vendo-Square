@@ -34,8 +34,10 @@ export default function CategoriesPage() {
             />
           </div>
         </div>
-        <button>
+        {/*Bulk Delete*/}
+        <button className="flex items-center text-white dark:text-white hover:dark:text-black flex-row space-x-2 bg-red-600 p-3 rounded-lg">
           <Trash2 />
+          <span>Bulk Delete</span>
         </button>
       </div>
     </div>
