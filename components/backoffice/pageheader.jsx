@@ -4,7 +4,7 @@ import { Plus } from "lucide-react";
 import Link from "next/link";
 export default function PageHeader({ title, href, linkTitle }) {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between py-4 mb-4">
       <Heading title={title} />
       <Link
         href={href}
